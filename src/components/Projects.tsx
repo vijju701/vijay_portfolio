@@ -81,11 +81,12 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* ✅ Fixed Layout Alignment with items-stretch */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-xl p-6 border-l-4 ${project.borderColor} shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]`}
+              className={`group bg-white rounded-xl p-6 border-l-4 ${project.borderColor} shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] flex flex-col justify-between min-h-[520px]`}
             >
               {/* Project Icon */}
               <div className="mb-6 flex justify-center">
@@ -131,8 +132,8 @@ const Projects = () => {
                 </ul>
               </div>
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center sm:items-stretch">
+              {/* Buttons at Bottom */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center sm:items-stretch mt-auto">
                 <a
                   href={project.codeUrl}
                   target="_blank"
@@ -140,7 +141,7 @@ const Projects = () => {
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium shadow-sm w-full sm:w-auto"
                 >
                   <Github size={16} />
-                  Code
+                  Repo
                 </a>
                 <a
                   href={project.demoUrl}

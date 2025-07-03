@@ -64,9 +64,6 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center md:text-right">
-            <p className="text-gray-400 flex items-center justify-center md:justify-end gap-2">
-              Made with <Heart className="text-red-500" size={16} /> and <Code className="text-blue-400" size={16} />
-            </p>
             <p className="text-gray-500 text-sm mt-1">
               © {currentYear} Vijay Andra. All rights reserved.
             </p>

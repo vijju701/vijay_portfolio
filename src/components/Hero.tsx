@@ -33,7 +33,7 @@ const Hero = () => {
             ✉️ Get In Touch
           </a>
           <a
-            href="/resume.pdf"
+            href="/AV_resume.pdf"
             className="bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-full transition duration-300 border border-white/20 shadow hover:scale-105"
             download
           >

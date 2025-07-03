@@ -1,5 +1,14 @@
-import React from 'react';
-import { Mail, Phone, Linkedin, Github, Code, MapPin, Send } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  Linkedin,
+  Github,
+  Code,
+  MapPin,
+  Send,
+  Instagram
+} from 'lucide-react';
+import { FaWhatsapp, FaTelegram, FaTwitter } from 'react-icons/fa';
 
 const Contact = () => {
   const contactInfo = [
@@ -47,6 +56,29 @@ const Contact = () => {
     }
   ];
 
+  const messagingLinks = [
+    {
+      icon: <FaWhatsapp size={28} color="#22C55E" />,
+      label: 'WhatsApp',
+      href: 'https://wa.me/916301737160'
+    },
+    {
+      icon: <Instagram size={28} className="text-pink-500" />,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/__the._.vijay__'
+    },
+    {
+      icon: <FaTwitter size={28} color="#1DA1F2" />,
+      label: 'X',
+      href: 'https://x.com/VijayAndra39110'
+    },
+    {
+      icon: <FaTelegram size={28} color="#0088CC" />,
+      label: 'Telegram',
+      href: 'https://t.me/Vijay_andra'
+    }
+  ];
+
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,8 +86,7 @@ const Contact = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and collaborations. 
-            Feel free to reach out if you'd like to discuss projects or just connect!
+            I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to discuss projects or just connect!
           </p>
         </div>
 
@@ -69,9 +100,7 @@ const Contact = () => {
                   <a
                     key={index}
                     href={info.href}
-                    className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
-                      info.href !== '#' ? 'hover:bg-gray-50 cursor-pointer' : 'cursor-default'
-                    }`}
+                    className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${info.href !== '#' ? 'hover:bg-gray-50 cursor-pointer' : 'cursor-default'}`}
                   >
                     <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                       {info.icon}
@@ -112,16 +141,10 @@ const Contact = () => {
           {/* Contact Form with Formspree */}
           <div className="bg-white rounded-3xl p-8 shadow-xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Send Me a Message</h3>
-            <form
-              action="https://formspree.io/f/mrbkoqgp"
-              method="POST"
-              className="space-y-6"
-            >
+            <form action="https://formspree.io/f/mrbkoqgp" method="POST" className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name
-                  </label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                   <input
                     type="text"
                     id="name"
@@ -131,11 +154,8 @@ const Contact = () => {
                     placeholder="Your name"
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                   <input
                     type="email"
                     id="email"
@@ -146,11 +166,8 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject
-                </label>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -160,11 +177,8 @@ const Contact = () => {
                   placeholder="What's this about?"
                 />
               </div>
-
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -174,7 +188,6 @@ const Contact = () => {
                   placeholder="Your message here..."
                 />
               </div>
-
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -183,6 +196,28 @@ const Contact = () => {
                 Send Message
               </button>
             </form>
+            
+            {/* Messaging icons */}
+            <div className="mt-10">
+              <h4 className="text-center text-lg font-medium text-gray-700 mb-6">Message me directly via</h4>
+              <div className="grid grid-cols-4 gap-4 px-4">
+                {messagingLinks.map((item, i) => (
+                  <a
+                    key={i}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition-all hover:shadow-md"
+                    aria-label={item.label}
+                  >
+                    <div className="mb-2">
+                      {item.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-600">{item.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
